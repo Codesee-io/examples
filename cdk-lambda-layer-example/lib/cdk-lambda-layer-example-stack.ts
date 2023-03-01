@@ -1,9 +1,7 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import { Datadog } from "datadog-cdk-constructs-v2";
-import * as sst from "@serverless-stack/resources";
 import { Construct } from "constructs";
-// import { Api, StackContext } from "sst/constructs";
 
 export class CdkLambdaLayerExampleStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
