@@ -18,7 +18,7 @@ export function ExampleStack({ stack }: StackContext) {
   const exampleLambda = new Function(stack, "ExampleLambda", {
     handler: "packages/functions/index.handler",
     layers: [codeseeLayer],
-    runtime: "nodejs14.x",
+    runtime: "nodejs16.x",
   });
 
   datadog.addLambdaFunctions([exampleLambda]);
