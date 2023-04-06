@@ -1,0 +1,56 @@
+service: example-aws-golang-with-al2-dd-bridge
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: provided.al2
+  # architecture: arm64 # use if you want to run Lambda Graviton ARM-based
+  architecture: x86_64
+
+functions:
+  bootstrap:
+    handler: hello-src/main.go
+    layers:
+      - arn:aws:lambda:us-east-1:666523192759:layer:codesee-dd-bridge:6 # This version currently only support x86, no ARM support yet.
+    environment:
+      # required env variables
+      DD_APM_DD_URL: http://127.0.0.1:8080
+      DD_APM_NON_LOCAL_TRAFFIC: true
+      DD_APM_ENABLED: true
+      CODESEE_BRIDGE_FORWARD_HOST: https://in-datadog.codesee.io
+      CODESEE_BRIDGE_TOKEN: <YOUR_CODESEE_TOKEN>
+
+      # optional
+      CODESEE_ENABLE_ACCESS_LOGS: false # DEBUG - turn on for debug logging CodeSee Lambda Layer
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+
+package:
+  patterns:
+    - ./bin/**
+
+custom:
+  datadog:
+    enabled: true
+    addExtension: true
+    addLayers: true
+    site: datadoghq.com # point toward your DD site: https://docs.datadoghq.com/getting_started/site/
+    apiKey: xxx # for quick testing, put your DD API key here
+    # apiKeySecretArn: <DATADOG_API_KEY_SECRET_ARN> # in Prod, point toward your AWS Secret Manager
+    enableDDLogs: true
+    enableDDTracing: true
+    captureLambdaPayload: true
+    env: development
+
+  # https://github.com/serverless/serverless/discussions/11667#discussioncomment-4976759
+  go:
+    supportedRuntimes: ["provided.al2"]
+    buildProvidedRuntimeAsBootstrap: true
+    cmd: GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" # Set GOARCH=arm64 if wanted to target ARM
+
+plugins:
+  - serverless-plugin-datadog
+  - serverless-go-plugin

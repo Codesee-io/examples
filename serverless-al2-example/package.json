@@ -1,0 +1,11 @@
+{
+  "name": "example-aws-golang-with-al2-dd-bridge",
+  "version": "0.0.1",
+  "description": "Example Serverless + Golang + AL2 + CodeSee",
+  "author": "CodeSee Engineers",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-go-plugin": "^2.2.0",
+    "serverless-plugin-datadog": "^5.23.0"
+  }
+}
