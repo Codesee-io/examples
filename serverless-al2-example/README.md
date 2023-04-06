@@ -10,7 +10,9 @@ serverless plugin install --name serverless-go-plugin
 go get github.com/DataDog/datadog-lambda-go
 ```
 
-## Set required environment variables for CodeSee:
+## Set required environment variables:
+
+Make sure the following environment variables are set in your `serverless.yml` file.
 
 ```
 DD_APM_DD_URL: http://127.0.0.1:8080

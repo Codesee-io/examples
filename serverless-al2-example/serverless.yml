@@ -14,13 +14,15 @@ functions:
     layers:
       - arn:aws:lambda:us-east-1:666523192759:layer:codesee-dd-bridge:6 # This version currently only support x86, no ARM support yet.
     environment:
+      # required env variables
       DD_APM_DD_URL: http://127.0.0.1:8080
       DD_APM_NON_LOCAL_TRAFFIC: true
       DD_APM_ENABLED: true
-
-      CODESEE_ENABLE_ACCESS_LOGS: true # DEBUG - turn off in Prod
       CODESEE_BRIDGE_FORWARD_HOST: https://in-datadog.codesee.io
       CODESEE_BRIDGE_TOKEN: <YOUR_CODESEE_TOKEN>
+
+      # optional
+      CODESEE_ENABLE_ACCESS_LOGS: false # DEBUG - turn on for debug logging CodeSee Lambda Layer
     events:
       - httpApi:
           path: /hello
