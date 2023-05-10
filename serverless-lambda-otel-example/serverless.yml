@@ -5,16 +5,9 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-east-2
-  architecture: arm64 # if built on MacOS M1, use arm64, otherwise amd64
+  architecture: arm64 # this needs to match the otel Lambda Layer architecture
   tracing:
     lambda: true
-  iamRoleStatements:
-    - Effect: "Allow" # xray permissions (required)
-      Action:
-        - "xray:PutTraceSegments"
-        - "xray:PutTelemetryRecords"
-      Resource:
-        - "*"
 
 functions:
   api:
