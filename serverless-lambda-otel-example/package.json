@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "serverless": "^3.30.1"
+  },
+  "name": "serverless-lambda-otel-example",
+  "description": "Example Serverless + Lambda + Open Telemetry integration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CodeSee Engineers",
+  "license": "MIT"
+}
