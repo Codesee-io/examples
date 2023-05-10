@@ -26,7 +26,6 @@ functions:
     environment:
       # let otel Lambda Layer where the config file is located at
       OPENTELEMETRY_COLLECTOR_CONFIG_FILE: "/var/task/collector.yaml"
-      OTEL_TRACES_EXPORTER: "otlp/codesee"
       AWS_LAMBDA_EXEC_WRAPPER: "/opt/otel-handler"
       OTEL_SERVICE_NAME: "serverless-lambda-otel-example"
       OTEL_RESOURCE_ATTRIBUTES: "deployment.environment=staging"

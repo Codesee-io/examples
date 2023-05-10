@@ -8,3 +8,8 @@ Example Serverless + Lambda + Open Telemetry integration
 npm i
 ```
 
+## Deploy Lambda
+
+```
+sls deploy
+```
