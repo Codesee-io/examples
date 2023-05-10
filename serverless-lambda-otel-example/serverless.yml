@@ -1,0 +1,41 @@
+service: serverless-lambda-otel-example
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-2
+  architecture: arm64 # if built on MacOS M1, use arm64, otherwise amd64
+  tracing:
+    lambda: true
+  iamRoleStatements:
+    - Effect: "Allow" # xray permissions (required)
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
+
+functions:
+  api:
+    handler: index.handler
+    timeout: 10
+    layers:
+      # how to get the managed lambda arn? https://aws-otel.github.io/docs/getting-started/lambda/lambda-js
+      - arn:aws:lambda:us-east-2:901920570463:layer:aws-otel-nodejs-arm64-ver-1-12-0:1
+    environment:
+      # let otel Lambda Layer where the config file is located at
+      OPENTELEMETRY_COLLECTOR_CONFIG_FILE: "/var/task/collector.yaml"
+      OTEL_TRACES_EXPORTER: "otlp/codesee"
+      AWS_LAMBDA_EXEC_WRAPPER: "/opt/otel-handler"
+      OTEL_SERVICE_NAME: "serverless-lambda-otel-example"
+      OTEL_RESOURCE_ATTRIBUTES: "deployment.environment=staging"
+
+      # optional otel collector Lambda Layer config:
+      # OTEL_LOG_LEVEL: "DEBUG"
+
+    events:
+      - httpApi:
+          path: /
+          method: get
+
