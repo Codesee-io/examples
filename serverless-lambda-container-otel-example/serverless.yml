@@ -1,0 +1,33 @@
+service: lambda-container-otel
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: us-east-2
+  architecture: arm64 # this needs to match the otel Lambda Layer architecture
+  tracing:
+    lambda: true
+  ecr:
+    images:
+      example-image:
+        path: ./
+
+functions:
+  api:
+    image:
+      name: example-image
+    timeout: 10
+    environment:
+      # let otel Lambda Layer where the config file is located at
+      OPENTELEMETRY_COLLECTOR_CONFIG_FILE: "/var/task/collector.yaml"
+      AWS_LAMBDA_EXEC_WRAPPER: "/opt/otel-handler"
+      OTEL_SERVICE_NAME: "serverless-lambda-container-otel-example"
+      OTEL_RESOURCE_ATTRIBUTES: "deployment.environment=staging"
+
+      # optional otel collector Lambda Layer config:
+      OTEL_LOG_LEVEL: "DEBUG"
+
+    events:
+      - httpApi:
+          path: /
+          method: get
