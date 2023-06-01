@@ -1,4 +1,4 @@
-service: lambda-container-otel
+service: serverless-lambda-container-otel-layer
 frameworkVersion: '3'
 
 provider:
@@ -21,7 +21,7 @@ functions:
       # let otel Lambda Layer where the config file is located at
       OPENTELEMETRY_COLLECTOR_CONFIG_FILE: "/var/task/collector.yaml"
       AWS_LAMBDA_EXEC_WRAPPER: "/opt/otel-handler"
-      OTEL_SERVICE_NAME: "serverless-lambda-container-otel-example"
+      OTEL_SERVICE_NAME: "serverless-lambda-container-otel-layer-example"
       OTEL_RESOURCE_ATTRIBUTES: "deployment.environment=staging"
 
       # optional otel collector Lambda Layer config:

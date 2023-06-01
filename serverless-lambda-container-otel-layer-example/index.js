@@ -4,7 +4,7 @@ module.exports.handler = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: "hello from serverless-lambda-container-otel-example lambda",
+        message: "hello from serverless-lambda-container-otel-layer-example lambda",
         input: event,
       },
       null,

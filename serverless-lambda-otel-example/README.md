@@ -1,6 +1,6 @@
 # serverless-lambda-otel-example
 
-Example Serverless + Lambda + Open Telemetry integration
+Example Serverless + Lambda + OpenTelemetry integration
 
 ## Install packages
 

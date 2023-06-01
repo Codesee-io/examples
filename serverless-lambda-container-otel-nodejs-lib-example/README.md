@@ -1,6 +1,6 @@
 # serverless-lambda-container-otel-example
 
-Example Serverless + Lambda Container + Open Telemetry integration
+Example Serverless + Lambda Container + OpenTelemetry integration
 
 ## Install packages
 
@@ -8,7 +8,7 @@ Example Serverless + Lambda Container + Open Telemetry integration
 npm i
 ```
 
-## Copy the public Open Telemetry Lamda Layer
+## Copy the public OpenTelemetry Lamda Layer
 
 Note: change the `arm64` to `amd64` in the ARN below based on your Lambda architecture.
 The Lambda ARN is located here: https://aws-otel.github.io/docs/getting-started/lambda/lambda-js

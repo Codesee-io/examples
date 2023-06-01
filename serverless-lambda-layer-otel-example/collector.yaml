@@ -1,0 +1,19 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: localhost:4317
+      http:
+        endpoint: localhost:4318
+
+exporters:
+  otlp/codesee:
+    endpoint: "in-otel.codesee.io:443"
+    headers:
+      Authorization: "Bearer <REPLACE WITH CODESEE TOKEN>" # !! Set your CodeSee token here. Ex: Bearer CodeSee:123...
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/codesee]
