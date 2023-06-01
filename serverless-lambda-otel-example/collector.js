@@ -1,43 +1,35 @@
-'use strict'
-
-const { registerInstrumentations } = require("@opentelemetry/instrumentation");
-const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-const { SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { Resource } = require("@opentelemetry/resources");
-const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
-const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-grpc");
 const grpc = require('@grpc/grpc-js');
+const opentelemetry = require('@opentelemetry/sdk-node');
+const { getNodeAutoInstrumentations } = require("@opentelemetry/auto-instrumentations-node");
+const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-proto");
+const { Resource } = require('@opentelemetry/resources');
+const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const { ConsoleSpanExporter } = require("@opentelemetry/sdk-trace-base");
+const process = require('process');
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG
-const { diag, trace, context, DiagConsoleLogger, DiagLogLevel } = require('@opentelemetry/api');
+const { diag, DiagConsoleLogger, DiagLogLevel } = require('@opentelemetry/api');
 diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
-registerInstrumentations({
-  instrumentations: [
-    getNodeAutoInstrumentations()
-  ],
-});
-
 const codeseeToken = process.env.CODESEE_TOKEN;
-const resource = Resource.default().merge(
-  new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: process.env.SERVICE_NAME,
-    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.DEPLOYMENT_ENVIRONMENT,
-    [SemanticResourceAttributes.SERVICE_VERSION]: process.env.SERVICE_VERSION,
-  })
-);
-
-const provider = new NodeTracerProvider({
-  resource
-});
-
 const metadata = new grpc.Metadata();
 metadata.set('Authorization', `Bearer ${codeseeToken}`);
-const exporter = new OTLPTraceExporter({
-  credentials: grpc.credentials.createSsl(),
-  metadata,
+
+const sdk = new opentelemetry.NodeSDK({
+  traceExporter: new ConsoleSpanExporter(),
+  // traceExporter: new OTLPTraceExporter({
+  //   url: "https://in-otel.codesee.io:443/v1/traces",
+  //   credentials: grpc.credentials.createSsl(),
+  //   metadata,
+  // }),
+  resource: Resource.default().merge(
+    new Resource({
+      [SemanticResourceAttributes.SERVICE_NAME]: "local-test",  // !! NAME YOUR SERVICE !!
+      [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: "staging", // !! SET YOUR ENVIRONMENT
+      [SemanticResourceAttributes.SERVICE_VERSION]: "0.1.0", // (optional) set version
+    })
+  ),
+  instrumentations: [getNodeAutoInstrumentations()],
 });
 
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.register();
+sdk.start();
