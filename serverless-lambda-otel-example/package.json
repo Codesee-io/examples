@@ -10,5 +10,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "CodeSee Engineers",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.14",
+    "@opentelemetry/auto-instrumentations-node": "^0.37.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.39.1",
+    "@opentelemetry/instrumentation": "^0.39.1",
+    "@opentelemetry/resources": "^1.13.0",
+    "@opentelemetry/sdk-trace-base": "^1.13.0",
+    "@opentelemetry/sdk-trace-node": "^1.13.0",
+    "@opentelemetry/semantic-conventions": "^1.13.0"
+  }
 }
