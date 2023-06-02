@@ -2,8 +2,8 @@
   "devDependencies": {
     "serverless": "^3.30.1"
   },
-  "name": "serverless-lambda-container-otel-example",
-  "description": "Example Serverless + Lambda Container + Open Telemetry integration",
+  "name": "serverless-lambda-layer-otel-example",
+  "description": "Example Serverless + Lambda + OpenTelemetry Lambda Layer instrumentation",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

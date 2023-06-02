@@ -1,7 +1,6 @@
 'use strict'
 
-require("./collector");
-
+require('./tracing');
 const http = require('http');
 
 // make a sample http get request to codesee.io to see on it on the CodeSee Service Map
@@ -19,7 +18,7 @@ module.exports.handler = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: "hello from serverless-lambda-otel-example lambda",
+        message: "hello from serverless-lambda-otel-nodejs-lib-example lambda",
         input: event,
       },
       null,

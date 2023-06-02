@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "serverless": "^3.30.1"
+  },
+  "name": "serverless-lambda-container-otel-layer-example",
+  "description": "Example Serverless + Lambda Container + OpenTelemetry Lambda Layer instrumentation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CodeSee Engineers",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1389.0",
+    "bunyan": "^1.8.15",
+    "node-libcurl": "^3.0.0"
+  }
+}
