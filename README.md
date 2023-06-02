@@ -11,7 +11,7 @@ This repo contains various example on how to integrate with CodeSee
 `serverless-al2-example` - Example Serverless + Golang + Amazon Linux 2 + CodeSee Lambda Layer
 
 ## Integrate with CodeSee via OpenTelemetry
-`serverless-lambda-layer-otel-example` - Example Serverless + Lambda / Layer + OpenTelemetry integration
+`serverless-lambda-layer-otel-example` - Example Serverless + Lambda + OpenTelemetry Lambda Layer instrumentation
 
 `serverless-lambda-otel-nodejs-lib-example` - Example Serverless + Lambda + OpenTelemetry NodeJS lib integration
 
