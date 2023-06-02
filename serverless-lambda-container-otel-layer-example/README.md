@@ -1,6 +1,6 @@
 # serverless-lambda-container-otel-layer-example
 
-Example Serverless + Lambda Container + Lambda Layer + OpenTelemetry integration
+Example Serverless + Lambda Container + OpenTelemetry Lambda Layer instrumentation
 
 ## Install packages
 
