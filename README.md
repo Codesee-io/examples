@@ -15,6 +15,6 @@ This repo contains various example on how to integrate with CodeSee
 
 `serverless-lambda-otel-nodejs-lib-example` - Example Serverless + Lambda + OpenTelemetry NodeSDK instrumentation
 
-`serverless-lambda-container-otel-layer-example` - Example Serverless + Lambda Container + Lambda Layer + OpenTelemetry integration
+`serverless-lambda-container-otel-layer-example` - Example Serverless + Lambda Container + OpenTelemetry Lambda Layer instrumentation
 
 `serverless-lambda-container-otel-nodejs-lib-example` - Example Serverless + Lambda Container + OpenTelemetry NodeJS lib integration
