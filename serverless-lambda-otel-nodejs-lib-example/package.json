@@ -3,7 +3,7 @@
     "serverless": "^3.30.1"
   },
   "name": "serverless-lambda-otel-nodejs-lib-example",
-  "description": "Example Serverless + Lambda + OpenTelemetry NodeJS lib integration",
+  "description": "Example Serverless + Lambda + OpenTelemetry NodeSDK instrumentation",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
