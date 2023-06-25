@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "datadog-lambda-js": "^6.86.0",
-    "dd-trace": "^3.14.1"
+    "dd-trace": "^3.24.0"
   }
 }
