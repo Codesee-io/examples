@@ -13,7 +13,7 @@ ENV DD_SERVICE docker-datadog-codesee-bridge-example
 ENV CODESEE_BRIDGE_TOKEN ""
 ENV CODESEE_BRIDGE_FORWARD_HOST https://in-datadog.codesee.io
 
-# optional, un-comment to enable debug Datadog and CodeSee agent
+# optional, un-comment to enable debug logging for Datadog and CodeSee agent
 # ENV DD_TRACE_DEBUG true
 # ENV CODESEE_ENABLE_ACCESS_LOGS true
 
