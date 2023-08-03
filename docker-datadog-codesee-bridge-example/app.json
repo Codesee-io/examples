@@ -1,0 +1,8 @@
+{
+  "name": "docker-datadog-codesee-bridge-example",
+  "description": "Example to deploy Node tracing app on Heroku",
+  "repository": "https://github.com/Codesee-io/examples/",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs",
+  "container": true
+}
