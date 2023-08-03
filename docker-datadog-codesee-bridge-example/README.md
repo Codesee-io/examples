@@ -21,3 +21,7 @@ https://app.codesee.io/service-maps/
 This sample repo also includes instruction how to deploy this sample tracing app to Heroku.
 
 Please take a look at `.github/workflows/heroku.yml` file
+
+## Additional Resources
+Datadog's [instructions for Heroku](https://docs.datadoghq.com/agent/basic_agent_usage/heroku/)
+CodeSee's [instructions for Datadog Integration](https://docs.codesee.io/docs/integration-with-datadog)
