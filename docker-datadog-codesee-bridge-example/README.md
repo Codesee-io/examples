@@ -1,4 +1,4 @@
-# Example sending trace to Datadog using CodeSee from Docker
+# Example single Docker container: CodeSee + Datadog (Heroku)
 
 ## Getting Started
 
