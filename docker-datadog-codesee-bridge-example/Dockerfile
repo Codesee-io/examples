@@ -1,17 +1,19 @@
 FROM node:20-bullseye
 
 # Datadog required environment variables
-ENV DD_API_KEY ""
 ENV DD_APM_ENABLED true
 ENV DD_APM_NON_LOCAL_TRAFFIC true
+# leave this key as empty but pass in the actual value via docker run. Ex: docker run -e DD_API_KEY=xyz
+ENV DD_API_KEY ""
 ENV DD_ENV staging
 ENV DD_APM_DD_URL http://localhost:8080
 # replace with your service name
 ENV DD_SERVICE docker-datadog-codesee-bridge-example
 
 # CodeSee required environment variables
-ENV CODESEE_BRIDGE_TOKEN ""
 ENV CODESEE_BRIDGE_FORWARD_HOST https://in-datadog.codesee.io
+# leave this key as empty but pass in the actual value via docker run. Ex: docker run -e CODESEE_BRIDGE_TOKEN=xyz
+ENV CODESEE_BRIDGE_TOKEN ""
 
 # optional, un-comment to enable debug logging for Datadog and CodeSee agent
 # ENV DD_TRACE_DEBUG true
