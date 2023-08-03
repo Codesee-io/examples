@@ -10,7 +10,7 @@ This repo contains various example on how to integrate with CodeSee
 
 [`serverless-al2-example`](serverless-al2-example/) - Example Serverless + Golang + Amazon Linux 2 + CodeSee Lambda Layer
 
-[`docker-datadog-codesee-bridge-example`](docker-datadog-codesee-bridge-example/) - Example Docker + Datadog + CodeSee Datadog Bridge
+[`docker-datadog-codesee-bridge-example`](docker-datadog-codesee-bridge-example/) - Example single Docker container: CodeSee + Datadog (Heroku)
 
 ## Integrate with CodeSee via OpenTelemetry
 [`serverless-lambda-layer-otel-example`](serverless-lambda-layer-otel-example/) - Example Serverless + Lambda + OpenTelemetry Lambda Layer instrumentation
