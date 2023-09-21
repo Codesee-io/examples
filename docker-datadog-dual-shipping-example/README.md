@@ -5,7 +5,7 @@ Datadog supports Dual Shipping of traces to another provider such as CodeSee: [m
 ## Getting Started
 
 ```
-# copy the env-example and replace its content
+# copy the env-example file, and replace the placeholder values with your values. 
 cp env-example .env
 
 # build Docker image
