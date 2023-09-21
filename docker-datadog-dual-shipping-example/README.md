@@ -1,4 +1,4 @@
-# Example single Docker container: CodeSee + Datadog Dual Shipping
+# Example Docker Compose: CodeSee + Datadog (agent) Dual Shipping
 
 Datadog supports Dual Shipping of traces to another provider such as CodeSee: [more info](https://docs.datadoghq.com/agent/guide/dual-shipping/)
 

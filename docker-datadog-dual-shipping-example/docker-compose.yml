@@ -28,3 +28,4 @@ services:
       # Optional: debug
       DD_TRACE_DEBUG: true
       DD_LOG_LEVEL: debug
+      DD_ENV: dual-shipping

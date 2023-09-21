@@ -1,7 +1,7 @@
 {
-  "name": "docker-datadog-codesee-bridge-example",
+  "name": "docker-datadog-dual-shipping-example",
   "version": "1.0.0",
-  "description": "example Node tracing example with Docker",
+  "description": "Node tracing example with Docker using Datadog Dual Shipping",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
