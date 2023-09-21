@@ -1,8 +1,0 @@
-additional_endpoints:
-  "https://in-datadog.codesee.io":
-  - xxx
-
-apm_config:
-  additional_endpoints:
-    "https://in-datadog.codesee.io/api/v1/client/traces":
-    - xxx
