@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  datadog-agent:
+    image: "datadog/agent:latest"
+    # Required: configure DD agent via environment
+    env_file:
+      - ".env"
+    volumes:
+      # Required volume mapping for DD agent to works correctly within Docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    ports:
+      - "8125:8125"
+      - "8126:8126"
+
+  example-node-app:
+    build: .
+    depends_on:
+      - datadog-agent
+    ports:
+      - "3000:3000"
+    environment:
+      # Required: to send Traces to the DD agent container
+      DD_AGENT_HOST: datadog-agent
+
+      # Optional: debug
+      DD_TRACE_DEBUG: true
+      DD_LOG_LEVEL: debug
+      DD_ENV: dual-shipping

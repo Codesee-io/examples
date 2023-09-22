@@ -1,0 +1,12 @@
+# Required
+DD_API_KEY=<YOUR DD KEY>
+DD_APM_ADDITIONAL_ENDPOINTS={"https://in-datadog.codesee.io": ["<CodeSee API Key here>"]}
+DD_ENV=<Your environment>
+DD_SERVICE=<Your service name>
+DD_APM_ENABLED=true
+DD_APM_NON_LOCAL_TRAFFIC=true
+DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+
+# Optional - enable to debug traces
+# DD_TRACE_DEBUG=true
+# DD_LOG_LEVEL=debug
