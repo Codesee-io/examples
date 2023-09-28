@@ -1,0 +1,3 @@
+CODESEE_TOKEN=<Replace with your CodeSee Token>
+SERVICE_NAME=nestjs-otel-lib-example
+DEPLOYMENT_ENVIRONMENT=staging
