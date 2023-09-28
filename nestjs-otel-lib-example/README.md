@@ -6,7 +6,7 @@ A sample Typescript application using the otel lib to send Traces data to CodeSe
 
 [tracing.ts](src/tracing.ts): It loads in required otel packages to be able to send Traces data to Codesee.
 
-[main.ts](src/main.ts): Load in the `tracking.ts` and starts it. Make sure to import tracing module before any other modules.
+[main.ts](src/main.ts): Loads in the `tracing.ts` and starts it. Make sure to import tracing module before any other modules.
 
 [env-example](env-example): Copy this file as `.env` and update its content to fill in required CodeSee token.
 
