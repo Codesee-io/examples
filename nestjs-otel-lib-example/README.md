@@ -2,7 +2,7 @@
 
 A sample Typescript application using the otel lib to send Traces data to CodeSee.
 
-## How Traces from sample app get into CodeSee?
+## Adding CodeSee to your existing Nest.js app
 
 [tracing.ts](src/tracing.ts): It loads in required otel packages to be able to send Traces data to Codesee.
 
