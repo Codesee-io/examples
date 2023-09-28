@@ -2,7 +2,15 @@
 
 A sample Typescript application using the otel lib to send Traces data to CodeSee.
 
-## Installation:
+## Copy .env file
+
+Copy and update .env file to match your environment
+
+```
+cp env-example .env
+```
+
+## Install required packages:
 
 ```
 npm i
