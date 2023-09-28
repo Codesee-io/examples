@@ -11,8 +11,8 @@ import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentation
 dotenv.config();
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG
-import { diag, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
-diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
+// import { diag, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
+// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
 const codeseeToken = process.env.CODESEE_TOKEN; // !! CodeSee auth token
 const metadata = new Metadata();
