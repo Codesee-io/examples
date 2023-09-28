@@ -38,11 +38,8 @@ export const otelSDK = new NodeSDK({
 
 // gracefully shut down the SDK on process exit
 process.on("SIGTERM", () => {
-  otelSDK
-    .shutdown()
-    .then(
-      () => console.log("otel SDK shut down successfully"),
-      (err) => console.log("Error shutting down otel SDK", err)
-    )
-    .finally(() => process.exit(0));
+  otelSDK.shutdown().then(
+    () => console.log("otel SDK shut down successfully"),
+    (err) => console.log("Error shutting down otel SDK", err)
+  );
 });
