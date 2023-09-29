@@ -7,6 +7,7 @@ import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions"
 import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-grpc";
 import * as dotenv from "dotenv";
 import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentations-node";
+import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 
 dotenv.config();
 
@@ -25,7 +26,6 @@ const oltpExporter = new OTLPTraceExporter({
 });
 
 export const otelSDK = new NodeSDK({
-  traceExporter: oltpExporter,
   resource: Resource.default().merge(
     new Resource({
       [SemanticResourceAttributes.SERVICE_NAME]: process.env.SERVICE_NAME, // !! NAME YOUR SERVICE !!
@@ -33,6 +33,7 @@ export const otelSDK = new NodeSDK({
         process.env.DEPLOYMENT_ENVIRONMENT, // !! SET YOUR ENVIRONMENT
     })
   ),
+  spanProcessor: new BatchSpanProcessor(oltpExporter),
   instrumentations: [getNodeAutoInstrumentations(), new NestInstrumentation()],
 });
 
