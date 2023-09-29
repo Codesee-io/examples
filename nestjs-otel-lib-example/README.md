@@ -10,7 +10,10 @@ A sample Typescript application using the otel lib to send Traces data to CodeSe
 
 [env-example](env-example): Copy this file as `.env` and update its content to fill in required CodeSee token.
 
+[package.json](package.json): Includes all required packages in `dependencies` section.
+
 # Running this application
+
 ## Copy .env file
 
 Copy and update .env file to match your environment
