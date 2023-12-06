@@ -1,0 +1,10 @@
+# reference: https://github.com/DataDog/helm-charts/blob/main/charts/datadog/README.md
+datadog:
+  apiKeyExistingSecret: datadog-secret
+
+agents:
+  containers:
+    traceAgent:
+      envFrom:
+        - secretRef:
+            name: codesee-secret

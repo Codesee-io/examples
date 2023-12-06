@@ -12,6 +12,9 @@ This repo contains various example on how to integrate with CodeSee
 
 [`docker-datadog-codesee-bridge-example`](docker-datadog-codesee-bridge-example/) - Example single Docker container: CodeSee + Datadog (Heroku)
 
+[`k8s-datadog-helm-example`](k8s-datadog-helm-example/) - Example Kubernetes + Datadog Helm + CodeSee integration via Datadog Dual Shipping
+
+
 ## Integrate with CodeSee via OpenTelemetry
 [`serverless-lambda-layer-otel-example`](serverless-lambda-layer-otel-example/) - Example Serverless + Lambda + OpenTelemetry Lambda Layer instrumentation
 
